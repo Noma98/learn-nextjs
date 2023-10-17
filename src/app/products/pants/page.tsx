@@ -1,3 +1,3 @@
 export default function Pants() {
-  return <div>pants</div>;
+  return <h1>Pants</h1>;
 }
