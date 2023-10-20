@@ -1,3 +1,4 @@
+import React from 'react';
 import { notFound } from 'next/navigation';
 
 type Props = {
@@ -5,6 +6,11 @@ type Props = {
     slug: string;
   };
 };
+export function generateMetadata({ params }: Props) {
+  return {
+    title: `제품의 이름: ${params.slug}`,
+  };
+}
 export default function Pants({ params }: Props) {
   if (params.slug === 'nothing') {
     notFound();
