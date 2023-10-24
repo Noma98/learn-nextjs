@@ -1,10 +1,11 @@
 import { getProducts } from '@/service/products';
 import Link from 'next/link';
 import React from 'react';
+import MeowArticle from '@/components/MeowArticle';
 
-export const revalidate = 10;
 export default async function ProductsPage() {
   const products = await getProducts();
+
   return (
     <>
       <h1>Products Page</h1>
@@ -15,6 +16,7 @@ export default async function ProductsPage() {
           </li>
         ))}
       </ul>
+      <MeowArticle />
     </>
   );
 }
