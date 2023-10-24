@@ -2,11 +2,13 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { getProduct, getProducts } from '@/service/products';
 
+export const revalidate = 10;
 type Props = {
   params: {
     slug: string;
   };
 };
+
 export function generateMetadata({ params }: Props) {
   return {
     title: `제품의 이름: ${params.slug}`,
