@@ -4,8 +4,8 @@ import React from 'react';
 import MeowArticle from '@/components/MeowArticle';
 
 export default async function ProductsPage() {
+  // throw new Error();
   const products = await getProducts();
-
   return (
     <>
       <h1>Products Page</h1>
