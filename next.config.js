@@ -3,6 +3,14 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com', //사용하고자 하는 이미지 주소의 도메인 url 입력
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
