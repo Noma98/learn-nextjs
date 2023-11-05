@@ -1,8 +1,9 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import Image from 'next/image';
 
 import { getProduct, getProducts } from '@/service/products';
+import GoProductsBtn from '@/components/GoProductsBtn';
 
 export const revalidate = 10;
 type Props = {
@@ -19,7 +20,8 @@ export function generateMetadata({ params }: Props) {
 export default async function ProductPage({ params: { slug } }: Props) {
   const product = await getProduct(slug);
   if (!product) {
-    notFound();
+    redirect('/products');
+    // notFound();
   }
   return (
     <>
@@ -30,6 +32,7 @@ export default async function ProductPage({ params: { slug } }: Props) {
         height={300}
         src={`/images/${product.image}`}
       />
+      <GoProductsBtn />
     </>
   );
 }
