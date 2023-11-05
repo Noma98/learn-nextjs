@@ -1,5 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
+
 import { getProduct, getProducts } from '@/service/products';
 
 export const revalidate = 10;
@@ -19,7 +21,17 @@ export default async function ProductPage({ params: { slug } }: Props) {
   if (!product) {
     notFound();
   }
-  return <h1>{product.name} 제품 안내 페이지</h1>;
+  return (
+    <>
+      <h1>{product.name} 제품 안내 페이지</h1>
+      <Image
+        alt={product.name}
+        width={240}
+        height={300}
+        src={`/images/${product.image}`}
+      />
+    </>
+  );
 }
 export async function generateStaticParams() {
   const products = await getProducts();
