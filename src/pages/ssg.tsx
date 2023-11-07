@@ -7,7 +7,7 @@ type Props = {
   products: Product[];
 };
 //외부에서 데이터를 받아오는데, 이를 서버에서 어떤 함수를 써서 전달해주느냐에 따라 SSG, SSR이 됨
-export default async function SSGPage({ products }: Props) {
+export default function SSGPage({ products }: Props) {
   return (
     <>
       <h1>Products Page</h1>
